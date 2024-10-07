@@ -3284,7 +3284,8 @@ int path_mount(const char *dev_name, struct path *path,
 
 	/* Default to relatime unless overriden */
 	if (!(flags & MS_NOATIME))
-		mnt_flags |= MNT_RELATIME;
+		mnt_flags |= MNT_NOATIME;
+		mnt_flags |= MNT_NODIRATIME;
 
 	/* Separate the per-mountpoint flags */
 	if (flags & MS_NOSUID)
